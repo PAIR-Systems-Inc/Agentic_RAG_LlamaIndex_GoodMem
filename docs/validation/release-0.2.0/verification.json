@@ -75,5 +75,24 @@
     "Document LLM and embedding metadata exclusions survive storage and retrieval.",
     "Query-dependent diagnostics live outside node identity; two-query fusion passes in all four modes.",
     "Negated filters match missing/null fields consistently with LlamaIndex."
-  ]
+  ],
+  "demo_source_commit": "e6d2d37507dcc2c3f641437e715045e19fc0614b",
+  "demo_ci": {
+    "conclusion": "success",
+    "url": "https://github.com/PAIR-Systems-Inc/Agentic_RAG_LlamaIndex_GoodMem/actions/runs/34910820453"
+  },
+  "release_followups": {
+    "harness": {
+      "state": "merged",
+      "pull_request": "https://github.com/PAIR-Systems-Inc/goodmem-integrations-e2e/pull/2",
+      "commit": "7c158ddf301528a0c0e293ef21858ed310349ba4"
+    },
+    "documentation": {
+      "state": "merged",
+      "pull_request": "https://github.com/PAIR-Systems-Inc/goodmem/pull/1697",
+      "commit": "41a7606d434ea518318292d96cd72acd20fe32ac",
+      "path": "docs/website/content/docs/integrations/agent-frameworks/llamaindex.mdx",
+      "validation": "Production build, internal link checks and Cloudflare preview passed."
+    }
+  }
 }
