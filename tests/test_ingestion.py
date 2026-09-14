@@ -27,9 +27,15 @@ def test_html_fallback_excludes_navigation():
     def handler(request):
         if request.url.path.endswith(".md"):
             return httpx.Response(404)
-        return httpx.Response(200, headers={"content-type": "text/html"}, text=(
-            "<title>Docs</title><nav>navigation noise</nav><main>" + "real content " * 30 + "</main>"
-        ))
+        return httpx.Response(
+            200,
+            headers={"content-type": "text/html"},
+            text=(
+                "<title>Docs</title><nav>navigation noise</nav><main>"
+                + "real content " * 30
+                + "</main>"
+            ),
+        )
 
     with httpx.Client(transport=httpx.MockTransport(handler)) as http:
         assert "navigation" not in source_document("https://example.org/docs", http)["text"]

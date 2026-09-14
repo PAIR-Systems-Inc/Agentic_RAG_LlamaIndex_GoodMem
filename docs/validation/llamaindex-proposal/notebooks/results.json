@@ -1,0 +1,22 @@
+[
+  {
+    "notebook": "1_LlamaIndex_Workflows.ipynb",
+    "passed": true,
+    "seconds": 5.031
+  },
+  {
+    "notebook": "2_LlamaIndex_Conditional_Routing.ipynb",
+    "passed": true,
+    "seconds": 3.272
+  },
+  {
+    "notebook": "4_LlamaIndex_ReAct_MultiHop_RAG.ipynb",
+    "passed": true,
+    "seconds": 10.965
+  },
+  {
+    "notebook": "3_LlamaIndex_Agentic_RAG.ipynb",
+    "passed": true,
+    "seconds": 35.893
+  }
+]

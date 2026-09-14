@@ -9,7 +9,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from dotenv import load_dotenv
-from goodmem import Goodmem
+from goodmem import AsyncGoodmem, Goodmem
 
 
 def read_json(path: Path) -> dict:
@@ -31,7 +31,7 @@ def save_json(path: Path, value: dict) -> None:
 class Settings:
     base_url: str = "http://localhost:8088"
     api_key: str = field(default="", repr=False)
-    namespace: str = "agentic-rag-goodmem"
+    namespace: str = "agentic-rag-llamaindex-goodmem"
     runtime: Path = Path(".runtime")
     timeout: float = 120
     ingest_timeout: float = 600
@@ -48,7 +48,7 @@ class Settings:
         return cls(
             base_url=url,
             api_key=os.getenv("GOODMEM_API_KEY", "").strip(),
-            namespace=os.getenv("GOODMEM_NAMESPACE", "agentic-rag-goodmem"),
+            namespace=os.getenv("GOODMEM_NAMESPACE", "agentic-rag-llamaindex-goodmem"),
             runtime=Path(os.getenv("GOODMEM_RUNTIME_DIR", ".runtime")),
             timeout=float(os.getenv("GOODMEM_TIMEOUT", "120")),
             ingest_timeout=float(os.getenv("GOODMEM_INGEST_TIMEOUT", "600")),
@@ -65,31 +65,48 @@ class Settings:
     def client(self) -> Goodmem:
         return Goodmem(base_url=self.base_url, api_key=self.key(), timeout=self.timeout)
 
+    def async_client(self) -> AsyncGoodmem:
+        return AsyncGoodmem(base_url=self.base_url, api_key=self.key(), timeout=self.timeout)
+
     def state(self) -> dict:
         state = read_json(self.runtime / "state.json")
         if state.get("base_url") != self.base_url or state.get("namespace") != self.namespace:
-            raise ValueError("No matching corpus state. Run goodmem-rag setup for this server/namespace")
+            raise ValueError(
+                "No matching corpus state. Run llamaindex-rag setup for this server/namespace"
+            )
         return state
 
 
 def chat_model():
-    """Keep the upstream Groq default; Cohere supports a single-provider demo."""
+    """Use the same providers and chat models as the LangChain port."""
     load_dotenv(Path(".env"))
-    provider = os.getenv("CHAT_PROVIDER", "groq").lower()
-    if provider == "groq":
-        from langchain_groq import ChatGroq
-
-        if not os.getenv("GROQ_API_KEY"):
-            raise ValueError("Set GROQ_API_KEY (or select CHAT_PROVIDER=cohere and COHERE_API_KEY)")
-        return ChatGroq(
-            model=os.getenv("CHAT_MODEL") or "openai/gpt-oss-120b", temperature=0, max_retries=2
-        )
+    provider = os.getenv("CHAT_PROVIDER", "cohere").lower()
     if provider == "cohere":
-        from langchain_cohere import ChatCohere
+        from llama_index.core.types import PydanticProgramMode
+        from llama_index.llms.cohere import Cohere
 
         if not os.getenv("COHERE_API_KEY"):
             raise ValueError("Set COHERE_API_KEY for CHAT_PROVIDER=cohere")
-        return ChatCohere(
-            model=os.getenv("CHAT_MODEL") or "command-a-03-2025", temperature=0, timeout_seconds=120
+        return Cohere(
+            model=os.getenv("CHAT_MODEL") or "command-a-03-2025",
+            api_key=os.environ["COHERE_API_KEY"],
+            temperature=0,
+            timeout=120,
+            max_tokens=1600,
+            max_retries=2,
+            pydantic_program_mode=PydanticProgramMode.LLM,
         )
-    raise ValueError("CHAT_PROVIDER must be groq or cohere")
+    if provider == "groq":
+        from llama_index.llms.groq import Groq
+
+        if not os.getenv("GROQ_API_KEY"):
+            raise ValueError("Set GROQ_API_KEY for CHAT_PROVIDER=groq")
+        return Groq(
+            model=os.getenv("CHAT_MODEL") or "openai/gpt-oss-120b",
+            api_key=os.environ["GROQ_API_KEY"],
+            temperature=0,
+            timeout=120,
+            max_tokens=1600,
+            max_retries=2,
+        )
+    raise ValueError("CHAT_PROVIDER must be cohere or groq")

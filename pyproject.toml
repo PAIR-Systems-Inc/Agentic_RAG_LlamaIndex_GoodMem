@@ -1,23 +1,22 @@
 [project]
-name = "agentic-rag-goodmem"
+name = "agentic-rag-llamaindex-goodmem"
 version = "0.1.0"
-description = "LangGraph agentic RAG notebooks backed by GoodMem"
+description = "LlamaIndex agentic RAG notebooks backed by GoodMem"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "beautifulsoup4>=4.13,<5",
     "goodmem==0.1.34",
     "httpx>=0.28,<1",
-    "langchain>=1.0,<2",
-    "langchain-goodmem==0.2.0",
-    "langchain-cohere>=0.5,<1",
-    "langchain-groq>=1.0,<2",
-    "langgraph>=1.0,<2",
+    "llama-index-core==0.14.24",
+    "llamaindex-goodmem==0.2.0",
+    "llama-index-llms-cohere==0.9.0",
+    "llama-index-llms-groq==0.6.1",
     "python-dotenv>=1.0,<2",
 ]
 
 [project.scripts]
-goodmem-rag = "goodmem_rag.cli:main"
+llamaindex-rag = "goodmem_rag.cli:main"
 
 [dependency-groups]
 dev = ["pytest>=8,<9", "ruff>=0.12", "nbclient>=0.10", "nbformat>=5.10", "ipykernel>=6.29"]

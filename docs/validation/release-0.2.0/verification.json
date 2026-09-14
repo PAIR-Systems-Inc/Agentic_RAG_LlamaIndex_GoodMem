@@ -1,0 +1,79 @@
+{
+  "date": "2026-09-14",
+  "release_status": "0.2.0 published on PyPI; demo installed from the registry lockfile",
+  "integration_commit": "1e5f236528ef334bbfbd4a65c910af80339bb064",
+  "integration_ci": {
+    "python_3_10": 119,
+    "python_3_13": 119,
+    "run_url": "https://github.com/PAIR-Systems-Inc/goodmem-llamaindex/actions/runs/34909102611"
+  },
+  "published_wheel_tests": {
+    "tests": 123,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 4,
+    "passed": 119
+  },
+  "published_wheel_live_tests": {
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 4
+  },
+  "monthly_harness": {
+    "tests": 19,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "passed": 18,
+    "skip_reason": "No GoodMem LLM configured; optional summary check skipped."
+  },
+  "demo_unit_tests": {
+    "passed": 10
+  },
+  "retrieval": {
+    "passed": 16,
+    "total": 16,
+    "report": "retrieval.json"
+  },
+  "notebooks": [
+    {
+      "notebook": "1_LlamaIndex_Workflows.ipynb",
+      "passed": true,
+      "seconds": 10.141
+    },
+    {
+      "notebook": "2_LlamaIndex_Conditional_Routing.ipynb",
+      "passed": true,
+      "seconds": 4.103
+    },
+    {
+      "notebook": "3_LlamaIndex_Agentic_RAG.ipynb",
+      "passed": true,
+      "seconds": 110.175
+    },
+    {
+      "notebook": "4_LlamaIndex_ReAct_MultiHop_RAG.ipynb",
+      "passed": true,
+      "seconds": 11.62
+    }
+  ],
+  "last_full_agent_evaluation": {
+    "passed": 7,
+    "total": 8,
+    "report": "../llamaindex-proposal/evaluation.json",
+    "stage": "before integration review fixes",
+    "limitation": "ReAct completed dependent searches but failed the citation provenance gate."
+  },
+  "ruff": "passed for integration and demo",
+  "review_fixes": [
+    "Injected clients remain authoritative in both sync and async modes.",
+    "Framework scores use higher-is-better direction; reranker scores retain their direction.",
+    "Agents retain accepted memory IDs after indexing confirmation failures.",
+    "Content transport errors preserve successful metadata reads.",
+    "Document LLM and embedding metadata exclusions survive storage and retrieval.",
+    "Query-dependent diagnostics live outside node identity; two-query fusion passes in all four modes.",
+    "Negated filters match missing/null fields consistently with LlamaIndex."
+  ]
+}

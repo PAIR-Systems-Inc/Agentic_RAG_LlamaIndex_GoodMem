@@ -1,105 +1,33 @@
-# Running the demo
+# Running and validating the LlamaIndex port
 
-The [README](../README.md) covers the first run and notebook setup. This guide covers other configurations, repeat runs, and troubleshooting.
+Use the same Python environment for the CLI and notebooks. `uv sync --locked` installs LlamaIndex, its Cohere and Groq adapters, the official GoodMem SDK, and `llamaindex-goodmem 0.2.0` from PyPI. The lockfile contains no LangChain, LangGraph or Chroma dependencies.
 
-## Use an existing GoodMem server
+## Existing GoodMem server
 
-Set these values in `.env`, keeping your chat-provider settings:
+Set `GOODMEM_BASE_URL` to the REST server root, without `/v1` or `/mcp`, and supply its `GOODMEM_API_KEY`. Set `GOODMEM_EMBEDDER_ID` and optionally `GOODMEM_RERANKER_ID` to reuse registered models. Run `uv run llamaindex-rag setup` without `--init`.
 
-```dotenv
-GOODMEM_BASE_URL=https://your-goodmem-server.example.com
-GOODMEM_API_KEY=your-goodmem-key
-GOODMEM_EMBEDDER_ID=your-embedder-uuid
-```
+The LlamaIndex port uses the namespace `agentic-rag-llamaindex-goodmem`, so its spaces are separate from the earlier port. Setup downloads the same six official pages, uses deterministic memory IDs for each content version, and waits for the memories it wrote. Re-running setup reuses unchanged documents. A changed page replaces the previous version only after the replacement is indexed.
 
-Use the REST server root, without `/v1` or `/mcp`. The CLI's gRPC address is a different interface. The credential must be allowed to create spaces and ingest documents.
+For a new Docker server, run `docker compose up -d --wait`, then `uv run llamaindex-rag setup --init --with-reranker`. The Compose project has its own database volume. Its default host port is 8088; set `GOODMEM_PORT` and update `GOODMEM_BASE_URL` if another demo already uses that port.
 
-Then load the demo's documentation:
+## Chat providers
 
-```bash
-uv run goodmem-rag setup
-```
+Cohere is the tested default: `CHAT_PROVIDER=cohere`, `CHAT_MODEL=command-a-03-2025`, and `COHERE_API_KEY`. Groq is also configurable through `CHAT_PROVIDER=groq`, `CHAT_MODEL=openai/gpt-oss-120b`, and `GROQ_API_KEY`; this provider path has not been live-tested in this exercise.
 
-Leave out `--init` when using an existing server. If you omit `GOODMEM_EMBEDDER_ID`, setup registers the model in `GOODMEM_EMBEDDING_MODEL` (default `embed-v4.0`) with `EMBEDDING_API_KEY` or `COHERE_API_KEY`.
+For Cohere, the routing tutorial and relevance grader use LlamaIndex’s text-based Pydantic program. The tested Cohere adapter omits enum values when converting tool schemas, so enum-based classification can produce invalid labels. The explicit agent workflow uses native tool calls with simple query parameters; ReAct uses ordinary chat.
 
-To use an existing reranker, set `GOODMEM_RERANKER_ID`. Otherwise, `setup --with-reranker` registers `rerank-v3.5` using `COHERE_API_KEY`. Reranking needs no GoodMem LLM registration.
-
-## Use Groq for chat
-
-Replace the chat settings in `.env`:
-
-```dotenv
-CHAT_PROVIDER=groq
-CHAT_MODEL=openai/gpt-oss-120b
-GROQ_API_KEY=your-groq-key
-```
-
-Groq is the original project's chat provider. GoodMem still needs an embedder, and optionally a reranker: keep the Cohere configuration or supply existing GoodMem resource IDs. Changing chat providers does not change the stored documentation.
-
-## Restart, refresh, or inspect retrieval
-
-Restart the local server without rebuilding the corpus:
-
-```bash
-docker compose up -d --wait
-```
-
-You can then run `ask` or open the RAG notebooks. To fetch the latest versions of the six source pages:
-
-```bash
-uv run goodmem-rag setup
-```
-
-Setup reuses unchanged documents and waits for changed pages to finish indexing before removing their old versions. A previously selected reranker remains selected when setup runs again.
-
-Inspect the passages directly:
-
-```bash
-uv run goodmem-rag search langgraph "How does the add_messages reducer work?"
-uv run goodmem-rag search langgraph "How does the add_messages reducer work?" --no-rerank
-```
-
-Use `langchain` instead of `langgraph` to search the other collection. `--no-rerank` lets you compare plain retrieval with reranked results.
-
-Stop the local server with `docker compose stop`. The database lives in a Docker volume. The ignored `.runtime` directory stores its initialized API key and the demo's resource IDs; keep that directory with the database when restarting the demo.
-
-## Troubleshooting
-
-| Symptom | What to check |
-| --- | --- |
-| `uv` cannot read the lockfile | [Update uv](https://docs.astral.sh/uv/getting-started/installation/#upgrading-uv), then run `uv sync --locked` again. |
-| Docker will not start | Make sure Docker Desktop or Docker Engine is running. Use `docker compose logs goodmem db` to inspect startup errors. |
-| Port 8088 is occupied | Set both `GOODMEM_PORT=8089` and `GOODMEM_BASE_URL=http://localhost:8089` in `.env`, then start Compose again. Saved keys are tied to the server address; supply that server's key if you change the address after setup. |
-| Chat asks for a Groq key after you configured Cohere | Change both `CHAT_PROVIDER` and `CHAT_MODEL` to the README values; the template defaults to Groq. |
-| One notebook reports missing imports | Select this project's `.venv` kernel in that notebook. In JupyterLab, select **GoodMem RAG** after registering it as shown in the README. |
-| `No matching corpus state` | Run `uv run goodmem-rag setup` for the configured server and namespace. |
-| Server already initialized, but no key is available | Supply its existing `GOODMEM_API_KEY`. `--init` does not recover keys from an initialized server. |
-
-## Separate copies of the corpus
-
-`GOODMEM_NAMESPACE` selects a corpus namespace, and `GOODMEM_RUNTIME_DIR` selects where its local state is stored. Use a different runtime directory for each copy. Reuse an existing `GOODMEM_EMBEDDER_ID`: GoodMem rejects equivalent embedder registrations even if their IDs differ.
-
-The default configuration is for local learning. For an application serving untrusted users, separate provisioning from retrieval and give retrieval a restricted GoodMem credential.
-
-## Validation and implementation
-
-The project uses the published `langchain-goodmem` integration for Document retrieval, metadata filters, and indexing readiness. The application keeps its source loading and agent workflows in [goodmem_rag](../goodmem_rag/). See the [integration assessment](langchain-integration-review.md) for the design and code comparison.
-
-Run offline checks:
+## Validation commands
 
 ```bash
 uv run pytest -q
 uv run ruff check goodmem_rag tests scripts
-```
-
-With GoodMem configured and provider credentials available, run the live checks:
-
-```bash
-uv run goodmem-rag evaluate
-uv run python scripts/probe_goodmem.py
 uv run python scripts/run_notebooks.py
+uv run llamaindex-rag evaluate --retrieval-only
+uv run llamaindex-rag evaluate --output .runtime/evaluation.json
 ```
 
-Evaluation checks source coverage, keywords, completed tool calls, citations, and dependent retrieval rounds for both agents. It records answers and configuration in `.runtime/evaluation.json`. Plain retrieval returns five candidates; reranking selects five from twenty. The checks verify citation provenance, not whether every generated claim follows from its cited passage.
+The live evaluation has eight retrieval questions with and without reranking, then four questions for each agent: general knowledge, a single collection, a comparison, and a dependent second search. It checks tool use, source provenance, collection scope and the search budget. It does not judge whether every generated statement follows from its cited passage.
 
-Notebook execution uses a fresh kernel per notebook and saves executed copies under `.runtime/executed/`. Committed notebooks have clean outputs. CI runs offline checks; live checks use provider APIs.
+The notebook runner starts a fresh kernel for each notebook and writes executed copies to `.runtime/executed`. Use `--output` to choose another directory. Source notebooks keep their outputs empty.
+
+Stop the server with `docker compose stop`; the corpus persists in its volume. Do not delete the volume unless you intend to discard that server’s data.

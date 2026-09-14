@@ -1,0 +1,63 @@
+{
+  "integration_unit_tests": {
+    "python_3_10": 92,
+    "python_3_13": 92
+  },
+  "wheel_tests": {
+    "passed": 92,
+    "live_tests_run_separately": 3
+  },
+  "demo_unit_tests": 10,
+  "notebooks": [
+    {
+      "notebook": "1_LlamaIndex_Workflows.ipynb",
+      "passed": true,
+      "seconds": 5.031
+    },
+    {
+      "notebook": "2_LlamaIndex_Conditional_Routing.ipynb",
+      "passed": true,
+      "seconds": 3.272
+    },
+    {
+      "notebook": "4_LlamaIndex_ReAct_MultiHop_RAG.ipynb",
+      "passed": true,
+      "seconds": 10.965
+    },
+    {
+      "notebook": "3_LlamaIndex_Agentic_RAG.ipynb",
+      "passed": true,
+      "seconds": 35.893
+    }
+  ],
+  "retrieval": {
+    "passed": 16,
+    "total": 16
+  },
+  "agents": {
+    "passed": 7,
+    "total": 8
+  },
+  "agent_failures": [
+    {
+      "agent": "react",
+      "case": "sequential",
+      "reason": "Cited an un-retrieved page and omitted a LangGraph source citation despite completing both searches."
+    }
+  ],
+  "ruff": "passed for integration and demo",
+  "release_status": "local uncommitted proposal, not published",
+  "live_tests": {
+    "passed": 3,
+    "source_matches_wheel": true
+  },
+  "retrieval_report": "review-fixes-retrieval.json",
+  "agent_and_notebook_validation": "Prior validation retained; these were not rerun for the four integration review fixes.",
+  "review_fixes": [
+    "Injected clients cannot fall back to another connection in either execution mode.",
+    "Framework vector scores use higher-is-better direction; original scores and their kind remain in metadata.",
+    "Agents receive accepted IDs and recovery guidance when indexing confirmation fails.",
+    "Content transport errors preserve successfully retrieved memory metadata."
+  ],
+  "recorded_stage": "Historical local proposal after the first review; superseded by release-0.2.0."
+}

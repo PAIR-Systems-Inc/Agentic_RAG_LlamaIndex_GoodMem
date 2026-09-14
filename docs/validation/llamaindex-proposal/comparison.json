@@ -1,0 +1,11 @@
+{
+  "baseline_commit": "2a6f352766c58dfd7a2a3c851dfa1e62915953b5",
+  "baseline_production_python_lines": 1102,
+  "proposal_production_python_lines": 971,
+  "reduction_percent": 11.9,
+  "identical_source_content": true,
+  "same_embedder_id": true,
+  "same_reranker_id": true,
+  "independent_spaces": true,
+  "recorded_stage": "Historical local proposal after the first review; superseded by release-0.2.0."
+}

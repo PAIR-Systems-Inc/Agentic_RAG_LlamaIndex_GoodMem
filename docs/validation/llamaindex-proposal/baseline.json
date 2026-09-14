@@ -1,0 +1,50 @@
+{
+  "packages": {
+    "llamaindex-goodmem": "0.1.0",
+    "llama-index-core": "0.14.24"
+  },
+  "findings": {
+    "retrieval": {
+      "text": "Stored note",
+      "metadata": {
+        "chunkId": "00000000-0000-4000-8000-000000000003",
+        "memoryId": "00000000-0000-4000-8000-000000000002",
+        "relevanceScore": -0.25,
+        "memoryIndex": null,
+        "resultSetId": "",
+        "query": "note",
+        "spaceId": "00000000-0000-4000-8000-000000000001",
+        "contentType": "text/plain",
+        "processingStatus": null
+      },
+      "source_preserved": false,
+      "failure_exposed": false,
+      "requested_candidates": 5
+    },
+    "read_text_error": {
+      "type": "JSONDecodeError",
+      "message": "Expecting value: line 1 column 1 (char 0)"
+    },
+    "pagination": {
+      "returned": 1,
+      "requests": 1,
+      "next_page_requested": false
+    },
+    "empty_search": {
+      "requests": 2,
+      "sleep_calls": 1,
+      "requested_sleep_seconds": 5.0
+    },
+    "readme_agent": {
+      "from_tools_exists": false
+    },
+    "malformed_response": {
+      "result": {
+        "results": [],
+        "memories": [],
+        "result_set_id": ""
+      },
+      "raised": false
+    }
+  }
+}

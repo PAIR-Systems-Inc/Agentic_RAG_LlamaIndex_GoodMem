@@ -1,4 +1,4 @@
-name: agentic-rag-goodmem
+name: agentic-rag-llamaindex-goodmem
 services:
   db:
     image: pgvector/pgvector:pg17

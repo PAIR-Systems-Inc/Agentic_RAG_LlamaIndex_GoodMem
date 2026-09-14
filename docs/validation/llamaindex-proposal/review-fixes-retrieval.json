@@ -1,0 +1,448 @@
+{
+  "timestamp": "2026-09-14T23:13:47.404544+00:00",
+  "packages": {
+    "goodmem": "0.1.34",
+    "llamaindex-goodmem": "0.2.0",
+    "llama-index-core": "0.14.24",
+    "llama-index-workflows": "2.23.3"
+  },
+  "chat_model": null,
+  "documents": [
+    {
+      "source": "https://docs.langchain.com/oss/python/langgraph/overview",
+      "sha256": "3fd533906d7c1eb7644e2feac4fe33cf0739b983dbc324f3786a9a1ef72a1ac3"
+    },
+    {
+      "source": "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+      "sha256": "fc9c3bfb4eb85b180063baf42fcb728de3c34f30331b00052e2f194bf735816a"
+    },
+    {
+      "source": "https://docs.langchain.com/oss/python/langgraph/graph-api",
+      "sha256": "bf61c695766d9cfb07538b11cb8325c78030ca97569f3f7bdf45240c2a74e131"
+    },
+    {
+      "source": "https://docs.langchain.com/oss/python/langchain/overview",
+      "sha256": "145958e74fa57c76b44396c2b9d6c79332220d0b0ea9925789baa17820b4fa38"
+    },
+    {
+      "source": "https://docs.langchain.com/oss/python/langchain/models",
+      "sha256": "f4fd519d8e50d27d12fd8ee23049d4f953286cace4ae383b8eb5e9c528863325"
+    },
+    {
+      "source": "https://docs.langchain.com/oss/python/langchain/tools",
+      "sha256": "4905be87db105e62856400d140776aaeeedd502c228cafe3dea8c8eeebd7fb25"
+    }
+  ],
+  "retrieval_configuration": {
+    "base_top_k": 5,
+    "rerank_candidates": 20,
+    "rerank_top_k": 5
+  },
+  "retrieval": [
+    {
+      "case": "state",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.2,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "scores": [
+        0.5755955576896667,
+        0.5128223896026611,
+        0.5098239183425903,
+        0.4976348876953125,
+        0.4941115975379944
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "state",
+        "nodes",
+        "edges"
+      ]
+    },
+    {
+      "case": "reducers",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.19,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "scores": [
+        0.5833320617675781,
+        0.5418095588684082,
+        0.4844425320625305,
+        0.4371045231819153,
+        0.4307609796524048
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "add_messages"
+      ]
+    },
+    {
+      "case": "persistence",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.205,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "scores": [
+        0.4709312915802002,
+        0.45449620485305786,
+        0.3924340605735779,
+        0.3743969202041626,
+        0.36325961351394653
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "checkpointer"
+      ]
+    },
+    {
+      "case": "fanout",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.195,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "scores": [
+        0.32629311084747314,
+        0.3191918134689331,
+        0.3144298791885376,
+        0.301399290561676,
+        0.29953038692474365
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "Send"
+      ]
+    },
+    {
+      "case": "tools",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.183,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "scores": [
+        0.5279563665390015,
+        0.49691474437713623,
+        0.47124534845352173,
+        0.4429616332054138,
+        0.4393124580383301
+      ],
+      "expected_page": "tools",
+      "keywords": [
+        "@tool"
+      ]
+    },
+    {
+      "case": "binding",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.165,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "scores": [
+        0.5946565866470337,
+        0.5419681072235107,
+        0.5232475399971008,
+        0.5224592089653015,
+        0.5184851288795471
+      ],
+      "expected_page": "models",
+      "keywords": [
+        "bind_tools",
+        "tool_calls"
+      ]
+    },
+    {
+      "case": "agents",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.17,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/overview",
+        "https://docs.langchain.com/oss/python/langchain/overview",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "scores": [
+        0.48456162214279175,
+        0.4294857978820801,
+        0.3736233711242676,
+        0.37228018045425415,
+        0.37046462297439575
+      ],
+      "expected_page": "overview",
+      "keywords": [
+        "create_agent"
+      ]
+    },
+    {
+      "case": "structured",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.157,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models"
+      ],
+      "scores": [
+        0.5646604299545288,
+        0.5360687971115112,
+        0.5293896198272705,
+        0.5143477916717529,
+        0.49659019708633423
+      ],
+      "expected_page": "models",
+      "keywords": [
+        "with_structured_output"
+      ]
+    },
+    {
+      "case": "state",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.428,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "scores": [
+        0.5303587,
+        0.52130115,
+        0.5150107,
+        0.5030035,
+        0.50065976
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "state",
+        "nodes",
+        "edges"
+      ]
+    },
+    {
+      "case": "reducers",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.314,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/workflows-agents"
+      ],
+      "scores": [
+        0.6675167,
+        0.6010557,
+        0.41406992,
+        0.3531387,
+        0.31264326
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "add_messages"
+      ]
+    },
+    {
+      "case": "persistence",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.295,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "scores": [
+        0.6628188,
+        0.53648347,
+        0.49011418,
+        0.42119524,
+        0.41449648
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "checkpointer"
+      ]
+    },
+    {
+      "case": "fanout",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.31,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "scores": [
+        0.44160134,
+        0.14534597,
+        0.05086082,
+        0.04282224,
+        0.03516148
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "Send"
+      ]
+    },
+    {
+      "case": "tools",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.3,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "scores": [
+        0.5376489,
+        0.4785538,
+        0.47387698,
+        0.32540315,
+        0.2680961
+      ],
+      "expected_page": "tools",
+      "keywords": [
+        "@tool"
+      ]
+    },
+    {
+      "case": "binding",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.333,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "scores": [
+        0.61140573,
+        0.5663309,
+        0.5663309,
+        0.5614318,
+        0.5455042
+      ],
+      "expected_page": "models",
+      "keywords": [
+        "bind_tools",
+        "tool_calls"
+      ]
+    },
+    {
+      "case": "agents",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.325,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/overview",
+        "https://docs.langchain.com/oss/python/langchain/overview",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "scores": [
+        0.58948064,
+        0.528899,
+        0.48908922,
+        0.48674685,
+        0.48279548
+      ],
+      "expected_page": "overview",
+      "keywords": [
+        "create_agent"
+      ]
+    },
+    {
+      "case": "structured",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.309,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models"
+      ],
+      "scores": [
+        0.5832277,
+        0.57666177,
+        0.5135471,
+        0.5106191,
+        0.45914948
+      ],
+      "expected_page": "models",
+      "keywords": [
+        "with_structured_output"
+      ]
+    }
+  ],
+  "agents": [],
+  "limitations": "Small acceptance suite, not a comparative answer-quality benchmark. Citation checks establish provenance, not entailment of every claim. Timing includes network and provider variation.",
+  "server": {
+    "version": "server-v1.0.311",
+    "major": 0,
+    "minor": 0,
+    "patch": 0,
+    "dirty": false,
+    "git_commit": "bac4db46f780b9c7cce4de85f0c13460a38c113c",
+    "git_describe": "server-v1.0.311",
+    "build_time": "2026-08-29T00:44:42.479Z"
+  },
+  "embedder_model": "embed-v4.0",
+  "reranker_model": "rerank-v3.5",
+  "passed": true
+}

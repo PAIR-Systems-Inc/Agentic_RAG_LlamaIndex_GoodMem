@@ -1,28 +1,30 @@
-"""Application descriptions for the shared GoodMem retrieval tools."""
+"""Scoped LlamaIndex tools built from the shared GoodMem retriever."""
 
-from langchain_core.prompts import PromptTemplate
-from langchain_core.tools import create_retriever_tool
-from langchain_goodmem import GoodMemRetriever
+from llama_index.core.tools import RetrieverTool
+from llama_index.core.vector_stores.types import MetadataFilter, MetadataFilters
+from llama_index.tools.goodmem import GoodMemRetriever
 
 
-def make_tools(client, state: dict, *, rerank: bool = True):
+def make_tools(client=None, state=None, *, async_client=None, rerank=True):
     descriptions = {
         "langgraph": "Search LangGraph docs for StateGraph, nodes, edges, reducers, persistence and workflows.",
         "langchain": "Search LangChain docs for models, tools, prompts, built-in agents and tool-calling loops.",
     }
     return [
-        create_retriever_tool(
+        RetrieverTool.from_defaults(
             GoodMemRetriever(
-                client=client, space_ids=[state["spaces"][collection]],
-                filter="CAST(val('$.application') AS TEXT) = 'agentic-rag-goodmem'",
+                client=client,
+                async_client=async_client,
+                space_ids=[state["spaces"][collection]],
+                filters=MetadataFilters(
+                    filters=[
+                        MetadataFilter(key="application", value="agentic-rag-llamaindex-goodmem")
+                    ]
+                ),
                 reranker_id=state.get("reranker_id") if rerank else None,
             ),
-            name=f"{collection}_docs_tool", description=description,
-            document_prompt=PromptTemplate.from_template(
-                "Source: {source}\nTitle: {title}\n{page_content}"
-            ),
-            document_separator="\n\n---\n\n",
-            response_format="content_and_artifact",
+            name=f"{collection}_docs_tool",
+            description=description,
         )
         for collection, description in descriptions.items()
     ]

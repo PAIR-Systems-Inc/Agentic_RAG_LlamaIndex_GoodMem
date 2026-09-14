@@ -1,0 +1,771 @@
+{
+  "timestamp": "2026-09-14T22:16:31.711552+00:00",
+  "packages": {
+    "goodmem": "0.1.34",
+    "llamaindex-goodmem": "0.2.0",
+    "llama-index-core": "0.14.24",
+    "llama-index-workflows": "2.23.3"
+  },
+  "chat_model": "command-a-03-2025",
+  "documents": [
+    {
+      "source": "https://docs.langchain.com/oss/python/langgraph/overview",
+      "sha256": "3fd533906d7c1eb7644e2feac4fe33cf0739b983dbc324f3786a9a1ef72a1ac3"
+    },
+    {
+      "source": "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+      "sha256": "fc9c3bfb4eb85b180063baf42fcb728de3c34f30331b00052e2f194bf735816a"
+    },
+    {
+      "source": "https://docs.langchain.com/oss/python/langgraph/graph-api",
+      "sha256": "bf61c695766d9cfb07538b11cb8325c78030ca97569f3f7bdf45240c2a74e131"
+    },
+    {
+      "source": "https://docs.langchain.com/oss/python/langchain/overview",
+      "sha256": "145958e74fa57c76b44396c2b9d6c79332220d0b0ea9925789baa17820b4fa38"
+    },
+    {
+      "source": "https://docs.langchain.com/oss/python/langchain/models",
+      "sha256": "f4fd519d8e50d27d12fd8ee23049d4f953286cace4ae383b8eb5e9c528863325"
+    },
+    {
+      "source": "https://docs.langchain.com/oss/python/langchain/tools",
+      "sha256": "4905be87db105e62856400d140776aaeeedd502c228cafe3dea8c8eeebd7fb25"
+    }
+  ],
+  "retrieval_configuration": {
+    "base_top_k": 5,
+    "rerank_candidates": 20,
+    "rerank_top_k": 5
+  },
+  "retrieval": [
+    {
+      "case": "state",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.173,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "scores": [
+        -0.5754490494728088,
+        -0.5133354663848877,
+        -0.5100366473197937,
+        -0.49810248613357544,
+        -0.4938676357269287
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "state",
+        "nodes",
+        "edges"
+      ]
+    },
+    {
+      "case": "reducers",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.167,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "scores": [
+        -0.5823769569396973,
+        -0.5405248999595642,
+        -0.48316001892089844,
+        -0.4356507360935211,
+        -0.42937979102134705
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "add_messages"
+      ]
+    },
+    {
+      "case": "persistence",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.188,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "scores": [
+        -0.47078555822372437,
+        -0.4538644552230835,
+        -0.3920276165008545,
+        -0.3746621906757355,
+        -0.36362266540527344
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "checkpointer"
+      ]
+    },
+    {
+      "case": "fanout",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.149,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/workflows-agents"
+      ],
+      "scores": [
+        -0.32631993293762207,
+        -0.319225549697876,
+        -0.3140304684638977,
+        -0.29962968826293945,
+        -0.2995990812778473
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "Send"
+      ]
+    },
+    {
+      "case": "tools",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.175,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "scores": [
+        -0.5279418230056763,
+        -0.49683070182800293,
+        -0.4720553159713745,
+        -0.4428684115409851,
+        -0.4401308298110962
+      ],
+      "expected_page": "tools",
+      "keywords": [
+        "@tool"
+      ]
+    },
+    {
+      "case": "binding",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.14,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "scores": [
+        -0.5940713882446289,
+        -0.5416469573974609,
+        -0.5228134393692017,
+        -0.521697998046875,
+        -0.5184130668640137
+      ],
+      "expected_page": "models",
+      "keywords": [
+        "bind_tools",
+        "tool_calls"
+      ]
+    },
+    {
+      "case": "agents",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.245,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/overview",
+        "https://docs.langchain.com/oss/python/langchain/overview",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "scores": [
+        -0.48355358839035034,
+        -0.4282910227775574,
+        -0.3734857738018036,
+        -0.37279677391052246,
+        -0.36970847845077515
+      ],
+      "expected_page": "overview",
+      "keywords": [
+        "create_agent"
+      ]
+    },
+    {
+      "case": "structured",
+      "reranked": false,
+      "passed": true,
+      "seconds": 0.183,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models"
+      ],
+      "scores": [
+        -0.5646604299545288,
+        -0.5360687971115112,
+        -0.5293896198272705,
+        -0.5143477916717529,
+        -0.49659019708633423
+      ],
+      "expected_page": "models",
+      "keywords": [
+        "with_structured_output"
+      ]
+    },
+    {
+      "case": "state",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.668,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "scores": [
+        0.5303587,
+        0.52130115,
+        0.5150107,
+        0.5030035,
+        0.50065976
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "state",
+        "nodes",
+        "edges"
+      ]
+    },
+    {
+      "case": "reducers",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.695,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/workflows-agents"
+      ],
+      "scores": [
+        0.6675167,
+        0.6010557,
+        0.41406992,
+        0.3531387,
+        0.31264326
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "add_messages"
+      ]
+    },
+    {
+      "case": "persistence",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.31,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "scores": [
+        0.6628188,
+        0.53648347,
+        0.49011418,
+        0.42119524,
+        0.41449648
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "checkpointer"
+      ]
+    },
+    {
+      "case": "fanout",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.321,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "scores": [
+        0.44160134,
+        0.14534597,
+        0.05086082,
+        0.04282224,
+        0.03516148
+      ],
+      "expected_page": "graph-api",
+      "keywords": [
+        "Send"
+      ]
+    },
+    {
+      "case": "tools",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.312,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "scores": [
+        0.5376489,
+        0.4785538,
+        0.47387698,
+        0.32540315,
+        0.2680961
+      ],
+      "expected_page": "tools",
+      "keywords": [
+        "@tool"
+      ]
+    },
+    {
+      "case": "binding",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.285,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "scores": [
+        0.61140573,
+        0.5663309,
+        0.5663309,
+        0.5614318,
+        0.5455042
+      ],
+      "expected_page": "models",
+      "keywords": [
+        "bind_tools",
+        "tool_calls"
+      ]
+    },
+    {
+      "case": "agents",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.348,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/overview",
+        "https://docs.langchain.com/oss/python/langchain/overview",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "scores": [
+        0.58948064,
+        0.528899,
+        0.48908922,
+        0.48674685,
+        0.48279548
+      ],
+      "expected_page": "overview",
+      "keywords": [
+        "create_agent"
+      ]
+    },
+    {
+      "case": "structured",
+      "reranked": true,
+      "passed": true,
+      "seconds": 0.376,
+      "sources": [
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/models"
+      ],
+      "scores": [
+        0.5832277,
+        0.57666177,
+        0.5135471,
+        0.5106191,
+        0.45914948
+      ],
+      "expected_page": "models",
+      "keywords": [
+        "with_structured_output"
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "agent": "workflow",
+      "case": "direct",
+      "question": "What is the capital of France?",
+      "passed": true,
+      "tool_calls": [],
+      "answer": "The capital of France is Paris.",
+      "citations": [],
+      "sources": [],
+      "steps": [
+        "decide"
+      ],
+      "seconds": 0.652
+    },
+    {
+      "agent": "workflow",
+      "case": "single_space",
+      "question": "What is a checkpointer used for in LangGraph? Cite the docs.",
+      "passed": true,
+      "tool_calls": [
+        {
+          "name": "langgraph_docs_tool",
+          "args": {
+            "input": "checkpointer"
+          },
+          "round": 1,
+          "sources": [
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api"
+          ]
+        }
+      ],
+      "answer": "In LangGraph, a **checkpointer** is used to save and restore the state of a graph execution, particularly at super-step boundaries. It ensures that if execution is interrupted or needs to be resumed, the graph can continue from where it left off without re-executing completed tasks. Specifically, the checkpointer:\n\n1. **Saves task results**: When a node contains multiple tasks, the checkpointer stores the results of completed tasks, allowing resumed threads to skip re-executing them.\n2. **Handles interrupts and retries**: If execution stops due to an interrupt or retry, the checkpointer ensures the affected node restarts from the beginning, re-running code and side effects before the pause.\n3. **Supports graph migrations**: The checkpointer enables seamless migrations of graph definitions (nodes, edges, and state) while maintaining state tracking.\n\n**Citations**:\n- [Graph API overview](https://docs.langchain.com/oss/python/langgraph/graph-api)",
+      "citations": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "steps": [
+        "decide",
+        "retrieve",
+        "grade",
+        "draft",
+        "decide"
+      ],
+      "seconds": 11.118
+    },
+    {
+      "agent": "workflow",
+      "case": "cross_space",
+      "question": "Using details from both docs, explain how a LangGraph StateGraph differs from a LangChain agent's tool-calling loop. Cite both sources.",
+      "passed": true,
+      "tool_calls": [
+        {
+          "name": "langgraph_docs_tool",
+          "args": {
+            "input": "StateGraph"
+          },
+          "round": 1,
+          "sources": [
+            "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api"
+          ]
+        },
+        {
+          "name": "langchain_docs_tool",
+          "args": {
+            "input": "tool-calling loop"
+          },
+          "round": 1,
+          "sources": [
+            "https://docs.langchain.com/oss/python/langchain/models",
+            "https://docs.langchain.com/oss/python/langchain/models",
+            "https://docs.langchain.com/oss/python/langchain/tools",
+            "https://docs.langchain.com/oss/python/langchain/models",
+            "https://docs.langchain.com/oss/python/langchain/models"
+          ]
+        }
+      ],
+      "answer": "Based on the provided evidence, here\u2019s how a **LangGraph StateGraph** differs from a **LangChain agent's tool-calling loop**:\n\n1. **State Management**:\n   - **StateGraph**: Manages state explicitly through defined schemas (`InputState`, `OutputState`, `OverallState`, etc.). Nodes can read from and write to specific state channels, allowing for fine-grained control over data flow. For example, a node can write to a `PrivateState` channel for internal communication. (Source: Graph API overview)\n   - **LangChain Agent**: Relies on a tool-calling loop where the agent invokes tools based on the model's response. The state is implicitly managed through the conversation history and tool results, which are passed back to the model for further reasoning. (Source: Models)\n\n2. **Tool Invocation**:\n   - **StateGraph**: Tools are invoked as nodes in the graph. When a `ToolNode` is added, it accesses the current graph state. Custom state fields can be passed explicitly if needed. (Source: Workflows and agents)\n   - **LangChain Agent**: Tools are invoked based on the model's decision during the conversation. The agent handles the tool execution loop, passing results back to the model for further processing. (Source: Models)\n\n3. **Graph Structure**:\n   - **StateGraph**: Defines a structured graph with nodes and edges, allowing for complex workflows. Nodes can write to private or overall state channels, enabling modular and reusable components. (Source: Graph API overview)\n   - **LangChain Agent**: Follows a linear tool-calling loop, where the model generates tool calls, tools are executed, and results are passed back to the model. There is no explicit graph structure. (Source: Models)\n\n4. **Schema Flexibility**:\n   - **StateGraph**: Supports explicit input and output schemas, allowing nodes to write to state channels not included in their input schema. Private state channels can be defined for internal communication. (Source: Graph API overview)\n   - **LangChain Agent**: Does not have explicit schema definitions for state management. Tool inputs and outputs are handled implicitly through the conversation history. (Source: Models)\n\n**Cited Sources**:\n- [Workflows and agents](https://docs.langchain.com/oss/python/langgraph/workflows-agents)\n- [Graph API overview](https://docs.langchain.com/oss/python/langgraph/graph-api)\n- [Models](https://docs.langchain.com/oss/python/langchain/models)",
+      "citations": [
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langgraph/workflows-agents"
+      ],
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "steps": [
+        "decide",
+        "retrieve",
+        "grade",
+        "draft",
+        "decide"
+      ],
+      "seconds": 31.956
+    },
+    {
+      "agent": "workflow",
+      "case": "sequential",
+      "question": "First search the LangGraph overview to identify the higher-level framework it recommends for prebuilt agent architectures. After reading that result, search the recommended framework's documentation to identify its agent constructor and explain how its tool-calling loop works. Cite both sources.",
+      "passed": true,
+      "tool_calls": [
+        {
+          "name": "langgraph_docs_tool",
+          "args": {
+            "input": "prebuilt agent architectures"
+          },
+          "round": 1,
+          "sources": [
+            "https://docs.langchain.com/oss/python/langgraph/overview",
+            "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/overview",
+            "https://docs.langchain.com/oss/python/langgraph/overview"
+          ]
+        },
+        {
+          "name": "langchain_docs_tool",
+          "args": {
+            "input": "agent constructor tool-calling loop"
+          },
+          "round": 2,
+          "sources": [
+            "https://docs.langchain.com/oss/python/langchain/models",
+            "https://docs.langchain.com/oss/python/langchain/tools",
+            "https://docs.langchain.com/oss/python/langchain/tools",
+            "https://docs.langchain.com/oss/python/langchain/tools",
+            "https://docs.langchain.com/oss/python/langchain/tools"
+          ]
+        }
+      ],
+      "answer": "The LangGraph overview recommends using LangChain's [agents] for a higher-level abstraction when getting started with agents or wanting prebuilt architectures for common LLM and tool-calling loops.\n\nThe agent constructor in LangChain is `create_agent`.\n\nThe tool-calling loop in LangChain works as follows:\n- When a model returns tool calls, you need to execute the tools and pass the results back to the model.\n- This creates a conversation loop where the model can use tool results to generate its final response.\n- LangChain includes agent abstractions that handle this orchestration for you.\n\nSources:\n- https://docs.langchain.com/oss/python/langgraph/overview\n- https://docs.langchain.com/oss/python/langchain/tools",
+      "citations": [
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langgraph/overview"
+      ],
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/overview",
+        "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "steps": [
+        "decide",
+        "retrieve",
+        "grade",
+        "draft",
+        "decide",
+        "retrieve",
+        "grade",
+        "draft",
+        "decide"
+      ],
+      "seconds": 24.093
+    },
+    {
+      "agent": "react",
+      "case": "direct",
+      "question": "What is the capital of France?",
+      "passed": true,
+      "tool_calls": [],
+      "answer": "The capital of France is Paris.",
+      "citations": [],
+      "sources": [],
+      "steps": [
+        "react"
+      ],
+      "seconds": 0.775
+    },
+    {
+      "agent": "react",
+      "case": "single_space",
+      "question": "What is a checkpointer used for in LangGraph? Cite the docs.",
+      "passed": true,
+      "tool_calls": [
+        {
+          "name": "langgraph_docs_tool",
+          "args": {
+            "input": "checkpointer"
+          },
+          "round": 1,
+          "sources": [
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api"
+          ]
+        }
+      ],
+      "answer": "In LangGraph, a checkpointer is used to save and restore the state of a graph, including completed task results, to ensure determinism and idempotency when resuming execution after an interrupt or retry. It saves checkpoints at super-step boundaries, not mid-function inside a node. This allows for re-execution of nodes from the start of their function, ensuring that code and side effects before the pause run again. Checkpointers also enable graph migrations, handling changes to graph definitions (nodes, edges, and state) even when tracking state. (https://docs.langchain.com/oss/python/langgraph/graph-api)",
+      "citations": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "steps": [
+        "react",
+        "react"
+      ],
+      "seconds": 5.781
+    },
+    {
+      "agent": "react",
+      "case": "cross_space",
+      "question": "Using details from both docs, explain how a LangGraph StateGraph differs from a LangChain agent's tool-calling loop. Cite both sources.",
+      "passed": true,
+      "tool_calls": [
+        {
+          "name": "langgraph_docs_tool",
+          "args": {
+            "input": "StateGraph"
+          },
+          "round": 1,
+          "sources": [
+            "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api"
+          ]
+        },
+        {
+          "name": "langchain_docs_tool",
+          "args": {
+            "input": "tool-calling loop"
+          },
+          "round": 2,
+          "sources": [
+            "https://docs.langchain.com/oss/python/langchain/models",
+            "https://docs.langchain.com/oss/python/langchain/models",
+            "https://docs.langchain.com/oss/python/langchain/tools",
+            "https://docs.langchain.com/oss/python/langchain/models",
+            "https://docs.langchain.com/oss/python/langchain/models"
+          ]
+        }
+      ],
+      "answer": "A LangGraph StateGraph is a graph-based workflow system that allows you to define nodes, edges, and state transitions, enabling complex, multi-step processes. It is part of LangChain's LangGraph, which provides a way to build and manage workflows.\n\nA LangChain agent's tool-calling loop, on the other hand, is a mechanism within LangChain's agent system that enables agents to interact with tools. When a model (e.g., an LLM) generates a tool call, the agent loop handles the execution of the tool and passes the result back to the model for further processing.\n\n**Key Differences:**\n\n1. **Purpose**: StateGraph is a workflow management system, while the tool-calling loop is a specific mechanism within LangChain's agent system.\n2. **Scope**: StateGraph operates at a higher level, defining entire workflows, whereas the tool-calling loop focuses on individual tool interactions within an agent's decision-making process.\n3. **Implementation**: StateGraph uses graph-based structures (nodes, edges, state), while the tool-calling loop is an integral part of LangChain's agent architecture.\n\n**Citations:**\n- LangGraph StateGraph: [https://docs.langchain.com/oss/python/langgraph/graph-api](https://docs.langchain.com/oss/python/langgraph/graph-api)\n- LangChain tool-calling loop: [https://docs.langchain.com/oss/python/langchain/models](https://docs.langchain.com/oss/python/langchain/models)",
+      "citations": [
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api"
+      ],
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/workflows-agents",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/tools"
+      ],
+      "steps": [
+        "react",
+        "react",
+        "react"
+      ],
+      "seconds": 16.508
+    },
+    {
+      "agent": "react",
+      "case": "sequential",
+      "question": "First search the LangGraph overview to identify the higher-level framework it recommends for prebuilt agent architectures. After reading that result, search the recommended framework's documentation to identify its agent constructor and explain how its tool-calling loop works. Cite both sources.",
+      "passed": false,
+      "tool_calls": [
+        {
+          "name": "langgraph_docs_tool",
+          "args": {
+            "input": "LangGraph overview prebuilt agent architectures"
+          },
+          "round": 1,
+          "sources": [
+            "https://docs.langchain.com/oss/python/langgraph/overview",
+            "https://docs.langchain.com/oss/python/langgraph/overview",
+            "https://docs.langchain.com/oss/python/langgraph/graph-api",
+            "https://docs.langchain.com/oss/python/langgraph/overview",
+            "https://docs.langchain.com/oss/python/langgraph/overview"
+          ]
+        },
+        {
+          "name": "langchain_docs_tool",
+          "args": {
+            "input": "LangChain agents constructor and tool-calling loop"
+          },
+          "round": 2,
+          "sources": [
+            "https://docs.langchain.com/oss/python/langchain/models",
+            "https://docs.langchain.com/oss/python/langchain/tools",
+            "https://docs.langchain.com/oss/python/langchain/overview",
+            "https://docs.langchain.com/oss/python/langchain/tools",
+            "https://docs.langchain.com/oss/python/langchain/tools"
+          ]
+        }
+      ],
+      "answer": "According to the LangGraph overview, for a higher-level abstraction and prebuilt agent architectures, it recommends using LangChain's [agents](https://docs.langchain.com/oss/python/langchain/agents). \n\nLangChain provides a `create_agent` constructor to build agents. The agent's tool-calling loop works as follows:\n\n1. The model's response includes a request to execute a tool.\n2. The agent loop handles the tool execution, passing the results back to the model for subsequent reasoning.\n3. This creates a conversation loop where the model can use tool results to generate its final response.\n\nHere\u2019s an example of creating an agent and invoking it:\n\n```python\nagent = create_agent(\n    ChatOpenAI(model=\"ollama:north-mini-code-1.0\"),\n    tools=[fetch_order_status],\n)\n\nresult = agent.invoke({\n    \"messages\": [{\"role\": \"user\", \"content\": \"What is the status of order #12345?\"}]\n})\n# The agent returns the tool output directly without another LLM call:\n# \"Order 12345 is shipped and will arrive in 2 days.\"\n```\n\nFor more details, refer to the LangChain [agents](https://docs.langchain.com/oss/python/langchain/agents) and [models](https://docs.langchain.com/oss/python/langchain/models) documentation.",
+      "citations": [
+        "https://docs.langchain.com/oss/python/langchain/agents",
+        "https://docs.langchain.com/oss/python/langchain/models"
+      ],
+      "sources": [
+        "https://docs.langchain.com/oss/python/langgraph/overview",
+        "https://docs.langchain.com/oss/python/langgraph/graph-api",
+        "https://docs.langchain.com/oss/python/langchain/models",
+        "https://docs.langchain.com/oss/python/langchain/tools",
+        "https://docs.langchain.com/oss/python/langchain/overview"
+      ],
+      "steps": [
+        "react",
+        "react",
+        "react"
+      ],
+      "seconds": 10.925
+    }
+  ],
+  "limitations": "Small acceptance suite, not a comparative answer-quality benchmark. Citation checks establish provenance, not entailment of every claim. Timing includes network and provider variation.",
+  "server": {
+    "version": "server-v1.0.311",
+    "major": 0,
+    "minor": 0,
+    "patch": 0,
+    "dirty": false,
+    "git_commit": "bac4db46f780b9c7cce4de85f0c13460a38c113c",
+    "git_describe": "server-v1.0.311",
+    "build_time": "2026-08-29T00:44:42.479Z"
+  },
+  "embedder_model": "embed-v4.0",
+  "reranker_model": "rerank-v3.5",
+  "passed": false
+}

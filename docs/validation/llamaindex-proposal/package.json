@@ -1,0 +1,9 @@
+{
+  "installed_from": "built wheel",
+  "version": "0.2.0",
+  "sha256": "de1d60454471449845da2d15d27d4a479f71619935eaff32b6c6599df3eb09be",
+  "source_checkout_not_on_import_path": true,
+  "wheel_matches_installed_source": true,
+  "source_matches_wheel": true,
+  "recorded_stage": "Historical local proposal after the first review; superseded by release-0.2.0."
+}

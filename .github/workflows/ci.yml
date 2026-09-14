@@ -18,12 +18,13 @@ jobs:
         run: |
           uv run python - <<'PY'
           from pathlib import Path
+          import ast
           import nbformat
           for path in Path('.').glob('*.ipynb'):
               notebook = nbformat.read(path, as_version=4)
               nbformat.validate(notebook)
               for cell in notebook.cells:
                   if cell.cell_type == 'code':
-                      compile(cell.source, str(path), 'exec')
+                      compile(cell.source, str(path), 'exec', flags=ast.PyCF_ALLOW_TOP_LEVEL_AWAIT)
                       assert not cell.outputs, f'{path}: clear outputs before committing'
           PY

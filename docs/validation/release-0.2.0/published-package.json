@@ -1,0 +1,21 @@
+{
+  "name": "llamaindex-goodmem",
+  "version": "0.2.0",
+  "files": [
+    {
+      "filename": "llamaindex_goodmem-0.2.0-py3-none-any.whl",
+      "sha256": "60f84cb482fae17b05044dd2698886bd641eed9030aa9f35ee8496455f042c42",
+      "url": "https://files.pythonhosted.org/packages/a7/a6/dfcf2e6e81643059977d9289e73bc4ddfc8aab150ae5d325240fa114b214/llamaindex_goodmem-0.2.0-py3-none-any.whl"
+    },
+    {
+      "filename": "llamaindex_goodmem-0.2.0.tar.gz",
+      "sha256": "19960ad4f4af6eee07138ca514612f82fed2a7220db7bea6a5ea85ac9f745a15",
+      "url": "https://files.pythonhosted.org/packages/4b/3d/42aab04088184f1dbd34b65aef71596ad6ea70b01cb893d199e634efd6ec/llamaindex_goodmem-0.2.0.tar.gz"
+    }
+  ],
+  "source_matches_pypi_wheel": true,
+  "source_matches_pypi_sdist": true,
+  "demo_installed_from_registry": true,
+  "demo_installed_modules_match_pypi_wheel": true,
+  "integration_commit": "1e5f236528ef334bbfbd4a65c910af80339bb064"
+}

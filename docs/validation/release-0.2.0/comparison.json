@@ -1,0 +1,11 @@
+{
+  "baseline_commit": "2a6f352766c58dfd7a2a3c851dfa1e62915953b5",
+  "baseline_production_python_lines": 1102,
+  "reduction_percent": 7.6,
+  "identical_source_content": true,
+  "same_embedder_id": true,
+  "same_reranker_id": true,
+  "independent_spaces": true,
+  "release_production_python_lines": 1018,
+  "release_version": "0.2.0"
+}

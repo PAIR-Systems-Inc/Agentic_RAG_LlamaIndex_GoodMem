@@ -1,111 +1,62 @@
-# Agentic RAG with GoodMem
+# Agentic RAG with LlamaIndex and GoodMem
 
-Build a documentation assistant that decides when to search, which sources to consult, and whether it needs another lookup before answering. These four Python notebooks teach agentic retrieval-augmented generation (RAG), from a single LangGraph node to an agent that answers questions across the LangGraph and LangChain documentation, with links to its sources.
+Build a documentation assistant that decides when to search, which collection to consult, and whether another lookup is needed. Four notebooks take you from a single workflow step to an agent that answers questions across two documentation collections and cites its sources.
 
-Adapted from [Chandula Senevirathna's Agentic_RAG](https://github.com/ChandulaSenevirathna/Agentic_RAG), with [GoodMem](https://goodmem.ai) providing document storage and search.
+This is a LlamaIndex adaptation of [Chandula Senevirathna’s Agentic_RAG](https://github.com/ChandulaSenevirathna/Agentic_RAG), following our [LangChain + GoodMem port](https://github.com/PAIR-Systems-Inc/Agentic_RAG_GoodMem). It keeps the same six LangGraph and LangChain documentation pages so both implementations can face the same questions.
 
-## What you'll learn
+## The notebooks
 
-| Notebook | What you'll build and why |
+| Notebook | What you’ll learn |
 | --- | --- |
-| [1 — LangGraph Starter](1_LangGraph_Starter.ipynb) | Start with one function that calls an LLM, then run two functions in parallel. Learn how **state** carries information between steps and how **reducers** combine their updates. |
-| [2 — Conditional Routing](2_LangGraph_Conditional_Routing.ipynb) | Classify a question and send it down one of two paths. This introduces **conditional edges**: choosing the next step based on what has happened so far. |
-| [3 — Agentic RAG](3_Agentic_RAG.ipynb) | Give an agent two documentation search tools. Follow an explicit graph that retrieves passages, checks their relevance, drafts an answer, and searches again when something is missing. |
-| [4 — ReAct Multi-hop RAG](4_ReAct_MultiHop_Agentic_RAG.ipynb) | Solve the same problem with LangChain's prebuilt agent loop. Compare its decisions with the explicit grading and rewriting steps in notebook 3. |
+| [1. Workflows](1_LlamaIndex_Workflows.ipynb) | Connect steps with typed events, run two LLM calls concurrently, and join their results. |
+| [2. Conditional routing](2_LlamaIndex_Conditional_Routing.ipynb) | Classify a question and send it to the appropriate step. |
+| [3. Agentic RAG](3_LlamaIndex_Agentic_RAG.ipynb) | Build an explicit retrieve, grade, draft and rewrite workflow. |
+| [4. ReAct multi-hop RAG](4_LlamaIndex_ReAct_MultiHop_RAG.ipynb) | Use LlamaIndex’s prebuilt agent to perform dependent searches across collections. |
 
-Start at notebook 1 if you're new to LangGraph. If you already know the basics, compare notebooks 3 and 4. Both include a question where the first search reveals what to look up next—that dependent second search is what makes it *multi-hop*.
+GoodMem stores the documents and handles chunking, embeddings, search and optional reranking. LlamaIndex runs the agent. No local embedding model or vector database is needed in the Python process. Reranking itself needs no LLM.
 
-## What GoodMem changes
+## Get started
 
-The original stores documents in Chroma and computes embeddings locally with BGE-M3. Here, GoodMem stores the documentation, splits it into searchable passages, and handles embeddings, search, and optional reranking. Both agents reuse the stored documents across runs.
+You need Python 3.11+, [uv](https://docs.astral.sh/uv/), a Cohere API key, and a running GoodMem server. Docker Compose is included if you want a local server.
 
-```mermaid
-flowchart LR
-  Q[Your question] --> A[Agent]
-  A -->|Search| G[GoodMem]
-  G -->|Passages and sources| A
-  A --> O[Answer with sources]
-```
-
-## Set up the project
-
-You'll need Git, Python 3.11+, [uv](https://docs.astral.sh/uv/getting-started/installation/), and a [Cohere API key](https://dashboard.cohere.com/api-keys). One key covers the chat, embedding, and reranking API calls in this setup.
-
-For notebooks 3–4 and the retrieval demo, also install and start [Docker Desktop](https://docs.docker.com/get-started/get-docker/), or use Docker Engine with Compose. **Notebooks 1–2 need only the chat configuration; you can start them without Docker or GoodMem.**
-
-In a terminal:
+Clone this repository, then install its dependencies, including the published [GoodMem integration for LlamaIndex](https://pypi.org/project/llamaindex-goodmem/0.2.0/):
 
 ```bash
-git clone https://github.com/PAIR-Systems-Inc/Agentic_RAG_GoodMem.git
-cd Agentic_RAG_GoodMem
+git clone https://github.com/PAIR-Systems-Inc/Agentic_RAG_LlamaIndex_GoodMem.git
+cd Agentic_RAG_LlamaIndex_GoodMem
 uv sync --locked
 cp .env.example .env
 ```
 
-On Windows, use PowerShell; `Copy-Item .env.example .env` also works for the copy step. `uv sync` creates the project's Python environment and installs its dependencies.
+Set `COHERE_API_KEY` in `.env`. The defaults use Cohere for chat, embeddings and reranking. Notebooks 1–2 are ready to run with just that key.
 
-Open `.env` and replace these values:
-
-```dotenv
-COHERE_API_KEY=your-cohere-key
-CHAT_PROVIDER=cohere
-CHAT_MODEL=command-a-03-2025
-```
-
-You can now [open notebooks 1–2](#open-the-notebooks). For the retrieval examples, continue below. If you already run GoodMem or prefer Groq for chat, see [other configurations](docs/running-the-demo.md).
-
-## Ask your first question
-
-From the project folder, start GoodMem and load the six documentation pages:
+For notebooks 3–4, start a new local server and load the documentation:
 
 ```bash
 docker compose up -d --wait
-uv run goodmem-rag setup --init --with-reranker
+uv run llamaindex-rag setup --init --with-reranker
+uv run llamaindex-rag ask "What is a checkpointer used for in LangGraph? Cite the docs."
 ```
 
-Use `--init` for the first setup of a new server. When setup prints `Ready: 6 documents in 2 spaces.`, ask a question:
+For an existing server, set `GOODMEM_BASE_URL` and `GOODMEM_API_KEY`, then omit `--init`. You can supply existing embedder and reranker IDs too.
+
+Try a question that needs both collections:
 
 ```bash
-uv run goodmem-rag ask "What is a checkpointer used for in LangGraph? Cite the docs."
+uv run llamaindex-rag ask "Compare LangGraph StateGraph with the LangChain agent loop. Cite both docs."
 ```
 
-An excerpt from a [recorded answer](docs/validation/shared-integration/release-0.2.0/evaluation.json):
-
-> When a graph is compiled with a checkpointer, LangGraph can save the state of the graph at various points, allowing for resumption of execution if it is interrupted or needs to be retried.
->
-> Source: [LangGraph Graph API overview](https://docs.langchain.com/oss/python/langgraph/graph-api)
-
-The command also prints the searches the agent made, so you can follow how it reached its answer. Try a question that needs both collections:
-
-```bash
-uv run goodmem-rag ask "Compare LangGraph StateGraph with the LangChain agent loop. Cite both docs."
-```
-
-The default is the ReAct agent from notebook 4. Add `--agent graph` to try notebook 3's explicit graph with the same question.
-
-Reranking is optional: omit `--with-reranker` during initial setup to start with plain search. Reranking itself requires no LLM. Stop the local server with `docker compose stop`; your indexed documents persist. See the [running guide](docs/running-the-demo.md) for restarting or refreshing them.
+Add `--agent workflow` to use notebook 3’s explicit workflow. The default is notebook 4’s ReAct agent. Both commands print the searches they made.
 
 ## Open the notebooks
 
-For **JupyterLab**, register the project environment as a kernel and launch the browser interface:
+In VS Code, select this project’s `.venv` as the notebook kernel. For JupyterLab:
 
 ```bash
-uv run python -m ipykernel install --sys-prefix --name goodmem-rag --display-name "GoodMem RAG"
+uv run python -m ipykernel install --sys-prefix --name llamaindex-goodmem-rag
 uv run --group notebooks jupyter lab
 ```
 
-Open a notebook from the file browser and select the **GoodMem RAG** kernel.
+Run cells from top to bottom. See [running and validation](docs/running-the-demo.md) and the [integration findings](docs/llamaindex-integration-review.md) for further details.
 
-For **VS Code**, install the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) extensions, then open this repository's folder. Open a notebook, click **Select Kernel**, and choose the Python environment in this project's `.venv`.
-
-Run cells from top to bottom, or use **Run All**. Each notebook has its own kernel selection; if one works and another reports missing imports, check that both use the project environment.
-
-## Explore further
-
-- [Running the demo](docs/running-the-demo.md): existing servers, Groq, troubleshooting, and validation commands.
-- [GoodMem findings](docs/goodmem-rough-edges.md): what worked, what was awkward, and what this experiment establishes.
-- [LangChain integration](docs/langchain-integration-review.md): the shared library and the code it replaces.
-
-The [recorded live validation](docs/validation/shared-integration/release-0.2.0/) passed all four notebooks, 16 retrieval checks, and eight agent cases. Answers can vary; this is not a comparison of answer quality against the original.
-
-Original work by Chandula Senevirathna. See the preserved [license notice](LICENSE.md) and [upstream provenance](docs/upstream.md).
+Original attribution and terms are preserved in [LICENSE.md](LICENSE.md); see [provenance](docs/upstream.md).
